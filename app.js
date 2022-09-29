@@ -9,7 +9,7 @@ import { getAboutPage, gettAddPage, getEditPage } from './controllers/pageContro
 const app = express();
 
 // connect DB
-mongoose.connect('mongodb://localhost/pcat-test-db');
+mongoose.connect('mongodb+srv://ysmermer:1GwTGFePiaiMgxbR@cluster0.5dxxguc.mongodb.net/pcat-db?retryWrites=true&w=majority');
 
 //Template Engine
 app.set('view engine', 'ejs');
@@ -37,7 +37,7 @@ app.get('/photos/edit/:id', getEditPage);
 
 
 
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`sunucu ${port} portunda çalışıyor`);
